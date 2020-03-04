@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import * as Font from "expo-font";
+import * as Font from 'expo-font';
 import { AppLoading } from "expo";
 
 import MealsNavigator from './navigation/MealsNavigator'
+
+/*
+* expo install react-native-screens
+* import { enableScreens } from 'react-native-screens';
+* enableScreens();
+* */
 
 //adding custome fonts
 const fetchFonts = () => {
@@ -17,8 +23,13 @@ export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   if (!fontLoaded) {
-    //display splash screen untill the fonts are loaded
-    <AppLoading startAsync={fetchFonts} onFinish={() => setFontLoaded(true)} />;
+    //display splash screen until the fonts are loaded
+    return(
+        <AppLoading
+            startAsync={fetchFonts}
+            onFinish={() => setFontLoaded(true)}
+        />
+    )
   }
 
   return (

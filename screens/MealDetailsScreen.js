@@ -1,7 +1,11 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native";
 
-const MealDetailsScreen = () => {
+import { MEALS } from "../data/dummy-data";
+
+const MealDetailsScreen = ({navigation, route}) => {
+    const { mealId } = route.params;
+    const selectedMeal =   MEALS.filter( meal => { meal.id === mealId});
 
     return(
         <View style={styles.screen}>

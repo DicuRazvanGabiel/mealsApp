@@ -1,12 +1,30 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 
-const CategoriyMealsScreen = (navigation) => {
+import MealItem from "../components/MealItem";
 
+import { MEALS } from '../data/dummy-data'
+
+const CategoriyMealsScreen = ({navigation, route}) => {
+    const { categoryId } = route.params;
+    const displayedMeals = MEALS.filter( meal => meal.categoryIds.indexOf(categoryId) >= 0 );
+
+    const renderItem = (itemData) =>{
+        return(
+            <MealItem itemData={itemData} onSelect={() => {navigation.navigate('MealDetailsScreen',{
+                mealTitle: itemData.item.title,
+                mealId: itemData.item.id
+            })}}/>
+        )
+    }
 
     return(
         <View style={styles.screen}>
-            <Text>The CategoriyMealsScreen Screen</Text>
+            <FlatList
+                data={displayedMeals}
+                renderItem={renderItem}
+                style={{width: '90%', margin: 5}}
+            />
         </View>
     )
 }
