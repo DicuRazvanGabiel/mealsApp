@@ -5,6 +5,8 @@ import {Platform} from "react-native";
 import Colors from "../constants/Colors";
 import FavoritesScreen from "../screens/FavoritesScreen";
 import MealDetailsScreen from "../screens/MealDetailsScreen";
+import {HeaderButtons, Item} from "react-navigation-header-buttons";
+import HeaderButton from "../components/HeaderButton";
 
 const FavoritesNavigator = () => {
     const Stack = createStackNavigator();
@@ -17,8 +19,13 @@ const FavoritesNavigator = () => {
             headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
             mode: 'modal'
         }}>
-            <Stack.Screen name='Favorites!' component={FavoritesScreen} />
-            <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen} />
+            <Stack.Screen name='Your Favorites' component={FavoritesScreen} />
+            <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen} options={({route}) => {
+                return ({
+                    headerTitle: route.params.mealTitle,
+                })
+            }
+            }/>
         </Stack.Navigator>
     )
 }

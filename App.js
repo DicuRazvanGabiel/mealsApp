@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import { AppLoading } from "expo";
 import { NavigationContainer } from '@react-navigation/native';
 
-import MealsFavTabNavigator from "./navigation/MealsFavTabNavigator";
+import MainNavigator from "./navigation/MainNavigator";
 /*
 * expo install react-native-screens
 * import { enableScreens } from 'react-native-screens';
@@ -34,7 +34,7 @@ export default function App() {
 
   return (
       <NavigationContainer>
-        <MealsFavTabNavigator />
+        <MainNavigator />
       </NavigationContainer>
   );
 }

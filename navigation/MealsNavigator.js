@@ -25,6 +25,13 @@ const MealsNavigator = () => {
             <StackNavigator.Screen
                 name="Categories"
                 component={CategoriesScreen}
+                options={({navigation}) => ({
+                    headerLeft: () => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item title={"Menu"} iconName={'ios-menu'} onPress={() => { navigation.openDrawer() }}/>
+                        </HeaderButtons>
+                    )
+                })}
             />
             <StackNavigator.Screen
                 name="CategoryMeals"
