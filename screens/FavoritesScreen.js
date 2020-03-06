@@ -1,11 +1,14 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
-const FavoritesScreen = () => {
+const FavoritesScreen = ({navigation}) => {
 
     return(
         <View style={styles.screen}>
             <Text>The FavoritesScreen Screen</Text>
+            <Button title={'go to meal details'} onPress={() => {navigation.navigate('MealDetailsScreen', {
+                mealId: 'c1'
+            })}} />
         </View>
     )
 }

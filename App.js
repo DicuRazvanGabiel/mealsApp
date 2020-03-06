@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Font from 'expo-font';
 import { AppLoading } from "expo";
+import { NavigationContainer } from '@react-navigation/native';
 
-import MealsNavigator from './navigation/MealsNavigator'
-
+import MealsFavTabNavigator from "./navigation/MealsFavTabNavigator";
 /*
 * expo install react-native-screens
 * import { enableScreens } from 'react-native-screens';
@@ -15,7 +15,7 @@ import MealsNavigator from './navigation/MealsNavigator'
 const fetchFonts = () => {
   return Font.loadAsync({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
 };
 
@@ -33,7 +33,9 @@ export default function App() {
   }
 
   return (
-    <MealsNavigator />
+      <NavigationContainer>
+        <MealsFavTabNavigator />
+      </NavigationContainer>
   );
 }
 

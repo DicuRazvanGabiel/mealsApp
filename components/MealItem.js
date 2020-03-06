@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#e9e9e9',
         borderRadius: 10,
         overflow: 'hidden',
-        marginBottom: 15
+        marginBottom: 15,
     },
 
     mealHeader: {
@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'open-sans-bold'
     }
 
 })
