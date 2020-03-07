@@ -19,6 +19,9 @@ const MainNavigator = () => {
                 headerStyle: {
                     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
                 },
+                headerTitleStyle: {
+                    fontFamily: 'open-sans-bold'
+                },
                 headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
                 mode: 'modal'
             }}>
@@ -38,7 +41,12 @@ const MainNavigator = () => {
     };
 
     return(
-        <Drawer.Navigator>
+        <Drawer.Navigator drawerContentOptions={{
+            activeTintColor: Colors.accentColor,
+            labelStyle: {
+                fontFamily: 'open-sans-bold'
+            }
+        }}>
             <Drawer.Screen name="Meals" component={MealsFavTabNavigator} />
             <Drawer.Screen name="Filters" component={StackNavigator} />
         </Drawer.Navigator>

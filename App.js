@@ -3,13 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import * as Font from 'expo-font';
 import { AppLoading } from "expo";
 import { NavigationContainer } from '@react-navigation/native';
+import { enableScreens } from 'react-native-screens';
 
 import MainNavigator from "./navigation/MainNavigator";
-/*
-* expo install react-native-screens
-* import { enableScreens } from 'react-native-screens';
-* enableScreens();
-* */
 
 //adding custome fonts
 const fetchFonts = () => {
@@ -21,7 +17,7 @@ const fetchFonts = () => {
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
-
+  enableScreens();
   if (!fontLoaded) {
     //display splash screen until the fonts are loaded
     return(

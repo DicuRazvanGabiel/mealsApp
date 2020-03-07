@@ -12,7 +12,10 @@ const MealsFavTabNavigator = () => {
 
     return(
         <TabNavigator.Navigator tabBarOptions={{
-            activeTintColor: Colors.accentColor
+            activeTintColor: Colors.accentColor,
+            labelStyle: {
+                fontFamily: 'open-sans-bold'
+            }
         }}>
             <TabNavigator.Screen name='Meals' component={MealsNavigator} options={{
                 tabBarIcon: ({color}) => (

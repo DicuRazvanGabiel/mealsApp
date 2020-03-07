@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 
+import DefaultText from '../components/DefaultText'
 import TouchableCmp from "./TouchableCmp";
 
 const MealItem = ({itemData, onSelect}) => {
@@ -19,15 +20,15 @@ const MealItem = ({itemData, onSelect}) => {
                         </ImageBackground>
                     </View>
                     <View style={{...styles.mealRow, ...styles.mealDetail}}>
-                        <Text>
+                        <DefaultText>
                             {itemData.item.duration}m
-                        </Text>
-                        <Text>
+                        </DefaultText>
+                        <DefaultText>
                             {itemData.item.complexity.toUpperCase()}
-                        </Text>
-                        <Text>
+                        </DefaultText>
+                        <DefaultText>
                             {itemData.item.affordability.toUpperCase()}
-                        </Text>
+                        </DefaultText>
                     </View>
                 </View>
             </TouchableCmp>

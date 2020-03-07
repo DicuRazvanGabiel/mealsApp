@@ -16,10 +16,21 @@ const FavoritesNavigator = () => {
             headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
             },
+            headerTitleStyle: {
+                fontFamily: 'open-sans-bold'
+            },
             headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
             mode: 'modal'
         }}>
-            <Stack.Screen name='Your Favorites' component={FavoritesScreen} />
+            <Stack.Screen name='Your Favorites' component={FavoritesScreen} 
+                options={({navigation}) => ({
+                    headerLeft: () => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item title={"Menu"} iconName={'ios-menu'} onPress={() => { navigation.openDrawer() }}/>
+                        </HeaderButtons>
+                    )
+                })}
+            />
             <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen} options={({route}) => {
                 return ({
                     headerTitle: route.params.mealTitle,
