@@ -28,10 +28,15 @@ const MainNavigator = () => {
                 <Stack.Screen
                     name="Filter Meals"
                     component={FiltersScreen}
-                  options={({navigation}) => ({
+                    options={({navigation, route}) => ({
                       headerLeft: () => (
                           <HeaderButtons HeaderButtonComponent={HeaderButton}>
                               <Item title={"Menu"} iconName={'ios-menu'} onPress={() => { navigation.openDrawer() }}/>
+                          </HeaderButtons>
+                      ),
+                      headerRight: () => (
+                          <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                              <Item title={"Save"} iconName={'ios-save'} onPress={() =>  { console.log('da') }}/>
                           </HeaderButtons>
                       )
                   })}
